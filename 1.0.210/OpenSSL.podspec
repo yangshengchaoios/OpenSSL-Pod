@@ -23,7 +23,8 @@ Pod::Spec.new do |s|
     mkdir -p "${CURRENTPATH}"
     mkdir -p "${CURRENTPATH}/bin"
 
-    cp "file.tgz" "${CURRENTPATH}/file.tgz"
+    echo "Downloading source..."
+    curl https://openssl.org/source/openssl-1.0.2j.tar.gz --output "${CURRENTPATH}/file.tgz"
     cd "${CURRENTPATH}"
     tar -xzf file.tgz
     cd "openssl-${VERSION}"
