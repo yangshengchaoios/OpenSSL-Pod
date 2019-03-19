@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
     mkdir -p "${CURRENTPATH}"
     mkdir -p "${CURRENTPATH}/bin"
 
-    cp "file.tgz" "${CURRENTPATH}/file.tgz"
+    curl https://www.openssl.org/source/openssl-1.0.1i.tar.gz --output "${CURRENTPATH}/file.tgz"
     cd "${CURRENTPATH}"
     tar -xzf file.tgz
     cd "openssl-${VERSION}"
@@ -85,7 +85,7 @@ Pod::Spec.new do |s|
     echo "Done."
   CMD
 
-  s.ios.platform            = :ios
+  s.ios.deployment_target   = "8.0"
   s.ios.public_header_files = "opensslIncludes/openssl/*.h"
   s.ios.vendored_libraries  = "lib/libcrypto.a", "lib/libssl.a"
 
